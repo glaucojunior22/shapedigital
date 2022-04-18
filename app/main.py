@@ -156,8 +156,7 @@ def get_equipment_orders_total(
         for order in equipment.orders:
             total += order.cost
         return {"total": total}
-    raise HTTPException(
-        status_code=404, detail="Equipment not exists")
+    raise HTTPException(status_code=404, detail="Equipment not exists")
 
 
 @app.get(
@@ -187,8 +186,7 @@ def create_equipment_order(
         return controllers.create_equipment_order(
             db, order, equipment.id
         )
-    raise HTTPException(
-    status_code=404, detail="Equipment not exists")
+    raise HTTPException(status_code=404, detail="Equipment not exists")
 
 
 @app.post("/orders", response_model=schemas.Order)
@@ -199,5 +197,4 @@ def create_equipment_order(
     equipment = controllers.get_equipment_by_code(db, order.code)
     if equipment:
         return controllers.create_order_with_code(db, order, equipment.id)
-    raise HTTPException(
-    status_code=404, detail="Equipment not exists")
+    raise HTTPException(status_code=404, detail="Equipment not exists")
