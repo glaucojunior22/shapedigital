@@ -38,3 +38,41 @@ is: {"code": "5310B9D7", type: "replacement", "cost": "10000"}
 2. Unit tests are mandatory
 
 3. Software engineering principles:API design, separation of concerns and modularity
+
+# How to run this project
+
+## Without Docker
+
+1. Clone this repo on your machine
+
+2. Create a virtualenv with python 3.9+ with command: `python -m venv .venv`
+
+3. Activate the virtualenv: `source .venv/bin/activate`
+
+4. Instal the dependencies using the command: `pip install -r requirements.txt`
+
+5. Run the server with the command: `uvicorn app.main:app --reload`
+
+### To run the tests:
+
+1. Enter the app directory: `cd app`
+
+2. Run Pytest: `pytest`
+
+## With Docker
+
+## You need to have Docker engine installed: [Install Docker](https://docs.docker.com/engine/install/)
+
+1. build the Docker Image: `sudo docker build -t shapedigital .`
+
+2. Run the Docker container: `sudo docker run -dp 8000:8000 shapedigital`
+
+- The default port is 8000, so access the API docs using: [Docs](http://localhost:8000/docs) or [Redoc](http://localhost:8000/redoc)
+
+# Tecnologies used for the project
+- Python (programming language)
+- FastAPI (API Framework)
+- Pydantic (Models Serialization/Data Validation)
+- SqlAlchemy (Database ORM)
+- Pytest (Tests Framework)
+- SQLite (Database for development, can be easily changed on file app.db line 5)
